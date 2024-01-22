@@ -4,9 +4,11 @@ import PopularCards from './PopularCards'
 
 const Home = () => {
   return (
-    <div className='flex flex-col' >
-        <Categories />
-        <PopularCards />
+    <div className='flex overflow-hidden' >
+      <div className='flex flex-col overflow-hidden' >
+          <Categories />
+          <PopularCards />
+      </div>
     </div>
   )
 }

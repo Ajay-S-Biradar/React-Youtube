@@ -1,1 +1,0 @@
-export const CategoriesList = ["All","Music","Mixes","Bollywood Music","Dramedy","Trailers","Cricket","NEET","Live"];
