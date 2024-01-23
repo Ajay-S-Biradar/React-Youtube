@@ -4,9 +4,8 @@ import { Link } from 'react-router-dom';
 const VideoCard = ({videoInfo}) => {
     if(!videoInfo)
         return ;
-    console.log(videoInfo);
   return (
-    <Link to={"watch/"+videoInfo.id}  >
+    <Link to={"watch?v="+videoInfo.id}  >
     <div key={videoInfo.id} className='flex w-64 flex-col' >
         <div>
             <img  className='rounded-xl '  src={videoInfo?.snippet?.thumbnails?.medium?.url}  />

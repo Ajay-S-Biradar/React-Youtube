@@ -6,6 +6,7 @@ import appStore from '../utils/store/appstore'
 import { Provider } from 'react-redux'
 import SideBar from './SideBar'
 import WatchPage from './WatchPage'
+import SearchResults from './SearchResults'
 
 const AppLayout =()=>{
     return(
@@ -28,8 +29,12 @@ const AppRouter = createBrowserRouter([
             element:<Home />,
             },
             {
-                path:'/watch/:x',
+                path:'/watch',
                 element:<WatchPage />
+            },
+            {
+                path:'/results',
+                element:<SearchResults />
             }
         ]
     }

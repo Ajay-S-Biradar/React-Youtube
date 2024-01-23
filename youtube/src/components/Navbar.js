@@ -11,7 +11,7 @@ const Navbar = () => {
         dispatch(showSidebar());
     }
   return (
-    <div className='grid grid-cols-12'>
+    <div className='grid grid-cols-12 fixed'>
         <div className='col-span-1 p-2 m-2 cursor-pointer' 
             onClick={()=>handleShowSidebar()}
         >

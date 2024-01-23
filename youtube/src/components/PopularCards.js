@@ -17,7 +17,7 @@ const PopularCards = () => {
   return (
     <div className='flex flex-wrap gap-4 overflow-hidden' >
       {
-        popvideo?.map((x)=> <VideoCard videoInfo={x} />)
+        popvideo?.map((x)=> <VideoCard key={x.id} videoInfo={x} />)
       }
     </div>
   )
