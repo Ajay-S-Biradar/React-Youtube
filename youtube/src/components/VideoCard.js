@@ -5,7 +5,7 @@ const VideoCard = ({videoInfo}) => {
     if(!videoInfo)
         return ;
   return (
-    <Link to={"watch?v="+videoInfo.id}  >
+    <Link to={"watch?v="+videoInfo.id+"&c="+videoInfo?.snippet.channelId}  >
     <div key={videoInfo.id} className='flex w-64 flex-col' >
         <div>
             <img  className='rounded-xl '  src={videoInfo?.snippet?.thumbnails?.medium?.url}  />

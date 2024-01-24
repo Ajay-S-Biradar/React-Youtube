@@ -9,7 +9,7 @@ const SearchResults = () => {
     const [results,setResults] = useState(null);
     useEffect(()=>{
         movieResults();
-    },[]);
+    },[query]);
     const movieResults =async ()=>{
         const data = await fetch(YOUTUBE_SUGGESTIONS_API+query+"&key="+YOUTUBE_API_KEY);
         const json = await data.json();
@@ -17,7 +17,7 @@ const SearchResults = () => {
     }
     if(!results) return;
   return (
-    <div className='flex flex-col items-center justify-center gap-6' >
+    <div className='flex flex-col items-start justify-center gap-6' >
       {
         results.map(x=><ResultVideoCard card={x} />)
       }

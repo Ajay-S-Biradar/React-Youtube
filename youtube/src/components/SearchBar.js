@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { YOUTUBE_AUTO_COMPLETE_API } from '../utils/constants';
+// import { YOUTUBE_AUTO_COMPLETE_API } from '../utils/constants';
 import { useNavigate } from 'react-router-dom';
 
 const SearchBar = () => {
@@ -16,11 +16,16 @@ const SearchBar = () => {
     }
   },[search]);
 
-  const autoComplete =async ()=>{
-    const data = await fetch(YOUTUBE_AUTO_COMPLETE_API+search);
-    const json = await data.json();
-    setSuggestions(json[1]);
-  }
+  const autoComplete = () => {
+    const script = document.createElement('script');
+    script.src = `http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=${search}&callback=handleAutoComplete`;
+    document.body.appendChild(script);
+  };
+
+  // Function to handle the JSONP response
+  window.handleAutoComplete = (data) => {
+    setSuggestions(data[1]);
+  };
 
   const handleSuggestionClick = (a)=>{
     setSearch(a)
@@ -53,7 +58,7 @@ const SearchBar = () => {
 
       {suggestions&& active && <div className='absolute bg-white px-4 top-10 rounded-xl' >
           {
-            suggestions.map(a => <h1 className='m-1 px-1 cursor-pointer ' onClick={()=>handleSuggestionClick(a)} >{a}</h1>)
+            suggestions.map((a,ind) => <h1 key={ind} className='m-1 px-1 cursor-pointer ' onClick={()=>handleSuggestionClick(a)} >{a}</h1>)
           }
       </div>}
     </div>
